@@ -1,8 +1,8 @@
-  "homepage": "https://juliettemangon2.github.io/chrisfitzgerald-site",
 {
   "name": "chrisfitzgerald-site",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://juliettemangon.github.io/chrisfitzgerald-site",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
