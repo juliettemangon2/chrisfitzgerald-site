@@ -9,5 +9,3 @@ root.render(
     <App />
   </BrowserRouter>
 )
-
-reportWebVitals();
