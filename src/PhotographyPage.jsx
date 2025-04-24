@@ -1,7 +1,7 @@
 // src/PhotographyPage.jsx
 import React, { useState } from 'react'
 import { motion }        from 'framer-motion'
-import GalleryModal      from './GalleryModal'
+import GalleryModal      from './components/GalleryModal'
 
 // 1. Import all images under src/assets/images/** 
 function importAll(r) {
