@@ -1,19 +1,43 @@
+// src/PhotographyPage.jsx
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import GalleryModal from './GalleryModal'
+import { motion }        from 'framer-motion'
+import GalleryModal      from './GalleryModal'
 
-const projects = [
-  {
-    id: 1,
-    title: 'Project One',
-    cover: '/images/project1-cover.jpg',
-    images: ['/images/project1-1.jpg', '/images/project1-2.jpg'],
-  },
-  // add more projects here
-]
+// 1. Import all images under src/assets/images/** 
+function importAll(r) {
+  return r.keys().map((key) => ({
+    path: r(key),
+    file: key.replace('./', ''), // "studioshoots/fitzgerald_chris-001.jpg"
+  }))
+}
+const allImages = importAll(
+  require.context('./assets/images', true, /\.(jpe?g|png)$/)
+)
+
+// 2. Group by folder name
+const projectsMap = allImages.reduce((map, { path, file }) => {
+  const [folder] = file.split('/')           // "studioshoots"
+  if (!map[folder]) map[folder] = []
+  map[folder].push(path)
+  return map
+}, {})
+
+// 3. Build a projects array
+function formatTitle(id) {
+  return id
+    .split(/[-_]/)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
+const projects = Object.entries(projectsMap).map(([id, images]) => ({
+  id,
+  title: formatTitle(id),   // "studioshoots" → "Studioshoots" (or tweak)
+  cover: images[0],
+  images,
+}))
 
 export default function PhotographyPage() {
-  const [modalProject, setModalProject] = useState(null)
+  const [selected, setSelected] = useState(null)
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -21,30 +45,33 @@ export default function PhotographyPage() {
         Photography
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {projects.map(project => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {projects.map(proj => (
           <motion.div
-            key={project.id}
+            key={proj.id}
+            className="cursor-pointer overflow-hidden rounded-lg shadow-lg"
             whileHover={{ scale: 1.03 }}
-            className="cursor-pointer"
-            onClick={() => setModalProject(project)}
+            onClick={() => setSelected(proj)}
           >
-            <img
-              src={project.cover}
-              alt={project.title}
-              className="w-full h-48 object-cover rounded-lg shadow-md"
-            />
-            <h2 className="mt-2 text-xl text-gray-800">
-              {project.title}
-            </h2>
+            {/* square thumbnail */}
+            <div className="aspect-square w-full overflow-hidden">
+              <img
+                src={proj.cover}
+                alt={proj.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="mt-2 text-center text-lg font-semibold text-gray-800">
+              {proj.title}
+            </div>
           </motion.div>
         ))}
       </div>
 
-      {modalProject && (
+      {selected && (
         <GalleryModal
-          project={modalProject}
-          onClose={() => setModalProject(null)}
+          project={selected}
+          onClose={() => setSelected(null)}
         />
       )}
     </div>
