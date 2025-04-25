@@ -69,7 +69,3 @@ export default function PhotographyPage() {
   );
 }
 
-      )}
-    </div>
-  )
-}
