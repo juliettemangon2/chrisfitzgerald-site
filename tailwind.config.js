@@ -1,18 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      './public/index.html',
-      './src/**/*.{js,jsx}',
-    ],
-    theme: {
-      extend: {
-        /* ← put every brand color, font-size, etc. here */
-        colors: {
-          primary: '#12245e',   // blue you used for text & buttons
-          secondary: '#f8f8ff', // light background if you need it
-        },
+  content: [
+    './public/index.html',
+    './src/**/*.{js,jsx}',      // make sure tailwind can scan your components
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'cl-cream':  '#FAF8F2',
+        'cl-ink':    '#1C1B16',
+        'cl-orange': '#FF6C3F',
+      },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        serif: ['"Playfair Display"', 'ui-serif', 'Georgia'],
       },
     },
-    plugins: [],
-  };
+  },
+  plugins: [],
+};
+
   
