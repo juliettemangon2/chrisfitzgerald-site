@@ -23,7 +23,8 @@ export default function LandingPage() {
   }, [idx, fullText]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-cl-cream">
+
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
