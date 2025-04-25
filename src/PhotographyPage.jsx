@@ -35,6 +35,9 @@ export default function PhotographyPage() {
 
   return (
     <div className="min-h-screen bg-cl-cream p-6">
+      <Link to="/" className="btn-primary mb-6">
+        Home
+      </Link>
       <h1 className="text-4xl font-bold text-primary text-center mb-8">
         Photography
       </h1>
