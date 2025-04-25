@@ -31,7 +31,7 @@ export default function ShootPage() {
 
   return (
    <div className="relative min-h-screen bg-cl-cream p-6">
-      <Link to="/photography"  className="btn-primary font-serif absolute top-4 right-4">
+      <Link to="/photography"  className="btn-primary font-serif absolute top-4 left-4">
          Back to all shoots
       </Link>
 
