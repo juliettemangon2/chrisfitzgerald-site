@@ -1,5 +1,10 @@
 name: Build & Deploy to GitHub Pages
 
+# Give the action permission to push commits back to your repo
+permissions:
+  contents: write
+  pages: write
+
 on:
   push:
     branches: [ main ]
