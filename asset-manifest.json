@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/chrisfitzgerald-site/static/js/main.b1ef71f4.js",
+    "main.js": "/chrisfitzgerald-site/static/js/main.db965384.js",
     "static/media/fitzgerald_chris-002.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-002.134787942a66b34ead81.jpg",
     "static/media/fitzgerald_chris-001.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-001.9b82d683701470f4d8b9.jpg",
     "static/media/fitzgerald_chris-003.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-003.672a79894ee2745df347.jpg",
     "index.html": "/chrisfitzgerald-site/index.html",
-    "main.b1ef71f4.js.map": "/chrisfitzgerald-site/static/js/main.b1ef71f4.js.map"
+    "main.db965384.js.map": "/chrisfitzgerald-site/static/js/main.db965384.js.map"
   },
   "entrypoints": [
-    "static/js/main.b1ef71f4.js"
+    "static/js/main.db965384.js"
   ]
 }
