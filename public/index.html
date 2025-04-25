@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chris Fitzgerald</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- 1) Tailwind config must come BEFORE loading the CDN -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#12245e'
-          }
-        }
-      }
-    }
-  </script>
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- 2) Then load the CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-  <div id="root"></div>
-</body>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <title>Chris Fitzgerald</title>
+
+    <!--
+      CRA will inject the final <link rel="stylesheet" …> for tailwind.css
+      (bundled by Webpack) during `npm run build`.  No CDN scripts needed here.
+    -->
+  </head>
+
+  <body class="bg-gray-50">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!--
+      CRA automatically inserts your compiled JS bundle(s) here.
+    -->
+  </body>
 </html>
