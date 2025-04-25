@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-50 p-6">
       <motion.img
-        src="/chris.jpeg"             
+        src={`${process.env.PUBLIC_URL}/chris.jpeg`}   
         alt="Chris Fitzgerald"
         className="w-48 h-48 object-cover rounded-full mb-6 shadow-lg"
         initial={{ scale: 0 }}
