@@ -8,23 +8,34 @@ export default function LandingPage() {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (idx < fullText.length) {
-        setDisplayed((d) => d + fullText[idx]);
+    let timeout1;
+    let timeout2;
+
+    if (idx < fullText.length) {
+      timeout1 = setTimeout(() => {
+        setDisplayed((prev) => prev + fullText[idx]);
         setIdx(idx + 1);
-      } else {
-        setTimeout(() => { setDisplayed(''); setIdx(0); }, 2000);
-      }
-    }, idx < fullText.length ? 150 : 50);
-    return () => clearTimeout(timeout);
-  }, [idx]);
+      }, 150);
+    } else {
+      timeout2 = setTimeout(() => {
+        setDisplayed('');
+        setIdx(0);
+      }, 2000);
+    }
+
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
+  }, [idx, fullText]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <motion.h1
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="text-6xl font-extrabold mb-8 text-primary flex"
+        className="text-6xl font-extrabold mb-8 text-primary flex items-center"
       >
         {displayed}
         <span className="border-r-2 border-primary ml-1 animate-blink" />
@@ -32,17 +43,28 @@ export default function LandingPage() {
 
       <div className="flex space-x-4">
         <motion.div whileHover={{ scale: 1.05 }}>
-          <Link to="/about" className="inline-block px-6 py-3 bg-primary text-white rounded-lg">
+          <Link
+            to="/about"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
             About Me
           </Link>
         </motion.div>
+
         <motion.div whileHover={{ scale: 1.05 }}>
-          <Link to="/photography" className="inline-block px-6 py-3 bg-primary text-white rounded-lg">
+          <Link
+            to="/photography"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
             Photography
           </Link>
         </motion.div>
+
         <motion.div whileHover={{ scale: 1.05 }}>
-          <Link to="/contact" className="inline-block px-6 py-3 bg-primary text-white rounded-lg">
+          <Link
+            to="/contact"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
             Contact
           </Link>
         </motion.div>
@@ -50,6 +72,7 @@ export default function LandingPage() {
     </div>
   );
 }
+
 
       </div>
     </div>
