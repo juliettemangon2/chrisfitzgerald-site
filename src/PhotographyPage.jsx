@@ -1,41 +1,34 @@
-// src/PhotographyPage.jsx
-import React, { useState } from 'react'
-import { motion }        from 'framer-motion'
-import GalleryModal      from './components/GalleryModal'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
+// Dynamically load every JPG/PNG under src/assets/images/**
 function importAll(r) {
   return r.keys().map((key) => ({
     path: r(key),
-    file: key.replace('./', ''), // "studioshoots/fitzgerald_chris-001.jpg"
-  }))
+    file: key.replace('./', ''), // e.g. studioshoots/photo1.jpg
+  }));
 }
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
-)
+);
 
-// 2. Group by folder name
-const projectsMap = allImages.reduce((map, { path, file }) => {
-  const [folder] = file.split('/')           // "studioshoots"
-  if (!map[folder]) map[folder] = []
-  map[folder].push(path)
-  return map
-}, {})
-
-// 3. Build a projects array
-function formatTitle(id) {
-  return id
-    .split(/[-_]/)
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ')
-}
-const projects = Object.entries(projectsMap).map(([id, images]) => ({
+// Group by folder
+const projects = Object.entries(
+  allImages.reduce((map, { path, file }) => {
+    const [folder] = file.split('/');
+    (map[folder] = map[folder] || []).push(path);
+    return map;
+  }, {})
+).map(([id, images]) => ({
   id,
-  title: formatTitle(id),   // "studioshoots" → "Studioshoots" (or tweak)
+  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
   cover: images[0],
   images,
-}))
+}));
 
 export default function PhotographyPage() {
-  const [selected, setSelected] = useState(null)
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -44,33 +37,35 @@ export default function PhotographyPage() {
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {projects.map(proj => (
+        {projects.map((p) => (
           <motion.div
-            key={proj.id}
-            className="cursor-pointer overflow-hidden rounded-lg shadow-lg"
-            whileHover={{ scale: 1.03 }}
-            onClick={() => setSelected(proj)}
+            key={p.id}
+            whileHover={{ scale: 1.04 }}
+            className="relative cursor-pointer shadow-lg"
+            onClick={() => navigate(`/photography/${p.id}`)}
           >
             {/* square thumbnail */}
             <div className="aspect-square w-full overflow-hidden">
               <img
-                src={proj.cover}
-                alt={proj.title}
+                src={p.cover}
+                alt={p.title}
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="mt-2 text-center text-lg font-semibold text-gray-800">
-              {proj.title}
+
+            {/* centered title overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="bg-black/60 text-white px-3 py-1 rounded text-lg font-semibold">
+                {p.title}
+              </span>
             </div>
           </motion.div>
         ))}
       </div>
+    </div>
+  );
+}
 
-      {selected && (
-        <GalleryModal
-          project={selected}
-          onClose={() => setSelected(null)}
-        />
       )}
     </div>
   )
