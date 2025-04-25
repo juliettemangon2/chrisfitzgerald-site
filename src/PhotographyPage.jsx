@@ -2,18 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-// Dynamically load every JPG/PNG under src/assets/images/**
+// ――― 1. Import every JPG/PNG in src/assets/images/**  ―――
 function importAll(r) {
   return r.keys().map((key) => ({
-    path: r(key),
-    file: key.replace('./', ''), // e.g. studioshoots/photo1.jpg
+    path: r(key),                // bundle URL
+    file: key.replace('./', ''), // studioshoots/img1.jpg
   }));
 }
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
 );
 
-// Group by folder
+// ――― 2. Group images by their top-level folder ―――
 const projects = Object.entries(
   allImages.reduce((map, { path, file }) => {
     const [folder] = file.split('/');
@@ -22,11 +22,14 @@ const projects = Object.entries(
   }, {})
 ).map(([id, images]) => ({
   id,
-  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+  title: id                 // “sunset-portraits” → “Sunset Portraits”
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase()),
   cover: images[0],
   images,
 }));
 
+// ――― 3. Component ―――
 export default function PhotographyPage() {
   const navigate = useNavigate();
 
@@ -37,18 +40,18 @@ export default function PhotographyPage() {
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {projects.map((p) => (
+        {projects.map((proj) => (
           <motion.div
-            key={p.id}
+            key={proj.id}
             whileHover={{ scale: 1.04 }}
             className="relative cursor-pointer shadow-lg"
-            onClick={() => navigate(`/photography/${p.id}`)}
+            onClick={() => navigate(`/photography/${proj.id}`)}
           >
             {/* square thumbnail */}
             <div className="aspect-square w-full overflow-hidden">
               <img
-                src={p.cover}
-                alt={p.title}
+                src={proj.cover}
+                alt={proj.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -56,7 +59,7 @@ export default function PhotographyPage() {
             {/* centered title overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="bg-black/60 text-white px-3 py-1 rounded text-lg font-semibold">
-                {p.title}
+                {proj.title}
               </span>
             </div>
           </motion.div>
