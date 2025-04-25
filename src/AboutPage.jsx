@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-cl-cream p-6">
       {/* back-to-home */}
-      <Link to="/" className="btn-primary font-serif absolute top-4 left-4">← Home</Link>
+      <Link to="/" className="btn-primary font-serif absolute top-4 left-4"> Home</Link>
 
       {/* profile photo */}
       <motion.img
