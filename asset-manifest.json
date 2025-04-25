@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chrisfitzgerald-site/static/css/main.f77a9a61.css",
-    "main.js": "/chrisfitzgerald-site/static/js/main.143ade5f.js",
+    "main.js": "/chrisfitzgerald-site/static/js/main.a3bd9697.js",
     "static/media/fitzgerald_chris-005.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-005.28151ea7e5237fedbebd.jpg",
     "static/media/fitzgerald_chris-006.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-006.e0ccf1c07f46651133a8.jpg",
     "static/media/fitzgerald_chris-009.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-009.7a89a17a0a356112bfcc.jpg",
@@ -19,13 +19,22 @@
     "static/media/fitzgerald_chris-002.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-002.e17e506fe8e4a8fc023b.jpg",
     "static/media/fitzgerald_chris-016.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-016.010d3aaee3c37423ff00.jpg",
     "static/media/fitzgerald_chris-018.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-018.4fedcfd0d40bd5507135.jpg",
+    "static/media/Screen Shot 2023-10-21 at 5.03.30 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.03.30 PM.5fef7e7ee5e427bcabfb.png",
+    "static/media/Screen Shot 2023-10-21 at 5.05.40 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.05.40 PM.d4db16e693d041112803.png",
+    "static/media/Screen Shot 2023-10-21 at 5.02.45 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.02.45 PM.c337c9ca847d51c6ea98.png",
     "static/media/fitzgerald_chris-003.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-003.b470a1ca683e67464980.jpg",
+    "static/media/Screen Shot 2023-10-21 at 5.06.06 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.06.06 PM.f38e4cd3b63e327b3320.png",
+    "static/media/Screen Shot 2023-10-21 at 5.04.57 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.04.57 PM.fc27bd0ae51d7dbbc791.png",
+    "static/media/Screen Shot 2023-10-21 at 5.00.28 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.00.28 PM.fa5ea0859f3983d161ee.png",
+    "static/media/Screen Shot 2023-10-21 at 5.04.23 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.04.23 PM.bd54339d1f14e8d59c1d.png",
+    "static/media/Screen Shot 2023-10-21 at 4.59.24 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 4.59.24 PM.8086c7a93aa62f6ae410.png",
+    "static/media/Screen Shot 2023-10-21 at 5.01.05 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.01.05 PM.2d6b37e6f1adfde4e85e.png",
     "index.html": "/chrisfitzgerald-site/index.html",
     "main.f77a9a61.css.map": "/chrisfitzgerald-site/static/css/main.f77a9a61.css.map",
-    "main.143ade5f.js.map": "/chrisfitzgerald-site/static/js/main.143ade5f.js.map"
+    "main.a3bd9697.js.map": "/chrisfitzgerald-site/static/js/main.a3bd9697.js.map"
   },
   "entrypoints": [
     "static/css/main.f77a9a61.css",
-    "static/js/main.143ade5f.js"
+    "static/js/main.a3bd9697.js"
   ]
 }
