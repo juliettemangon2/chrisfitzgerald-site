@@ -4,6 +4,7 @@ import LandingPage from './LandingPage'
 import AboutPage from './AboutPage'
 import PhotographyPage from './PhotographyPage'
 import ContactPage from './ContactPage'
+import ShootPage from './ShootPage'
 
 
 function App() {
