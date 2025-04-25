@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // ← for in-app navigation
 
 export default function LandingPage() {
-  const fullText = 'Chris Fitzgerald'
-  const [displayed, setDisplayed] = useState('')
-  const [idx, setIdx] = useState(0)
+  const fullText = 'Chris Fitzgerald';
+  const [displayed, setDisplayed] = useState('');
+  const [idx, setIdx] = useState(0);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (idx < fullText.length) {
-        setDisplayed((d) => d + fullText[idx])
-        setIdx(idx + 1)
+        setDisplayed((d) => d + fullText[idx]);
+        setIdx(idx + 1);
       } else {
         setTimeout(() => {
-          setDisplayed('')
-          setIdx(0)
-        }, 2000)
+          setDisplayed('');
+          setIdx(0);
+        }, 2000);
       }
-    }, idx < fullText.length ? 150 : 50)
-    return () => clearTimeout(timeout)
-  }, [idx])
+    }, idx < fullText.length ? 150 : 50);
+    return () => clearTimeout(timeout);
+  }, [idx]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
@@ -34,31 +35,33 @@ export default function LandingPage() {
       </motion.h1>
 
       <div className="flex space-x-4">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="px-6 py-3 bg-primary text-white rounded-lg"
-          onClick={() => (window.location.href = '/about')}
-        >
-          About Me
-        </motion.button>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link
+            to="/about"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
+            About Me
+          </Link>
+        </motion.div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="px-6 py-3 bg-primary text-white rounded-lg"
-          onClick={() => (window.location.href = '/photography')}
-        >
-          Photography
-        </motion.button>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link
+            to="/photography"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
+            Photography
+          </Link>
+        </motion.div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="px-6 py-3 bg-primary text-white rounded-lg"
-          onClick={() => (window.location.href = '/contact')}
-        >
-          Contact
-        </motion.button>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link
+            to="/contact"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
+          >
+            Contact
+          </Link>
+        </motion.div>
       </div>
     </div>
-  )
+  );
 }
-
