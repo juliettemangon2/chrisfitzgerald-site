@@ -30,9 +30,9 @@ export default function ShootPage() {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
-   <div className="min-h-screen bg-cl-cream p-6">
-      <Link to="/photography" className="text-primary underline mb-4 inline-block">
-        ← Back to all shoots
+   <div className="relative min-h-screen bg-cl-cream p-6">
+      <Link to="/photography"  className="btn-primary font-serif absolute top-4 right-4">
+         Back to all shoots
       </Link>
 
       <h1 className="text-3xl font-bold text-primary mb-6">{title}</h1>
