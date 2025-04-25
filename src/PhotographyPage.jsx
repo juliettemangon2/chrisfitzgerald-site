@@ -33,7 +33,7 @@ export default function PhotographyPage() {
 
   return (
     <div className="min-h-screen bg-cl-cream p-6">
-      <Link to="/" className="btn-primary font-serif absolute top-4 right-4">Home</Link>
+      <Link to="/" className="btn-primary font-serif absolute top-4 left-4">Home</Link>
 
       <h1 className="text-4xl font-bold text-cl-ink text-center mb-8">
         Photography
