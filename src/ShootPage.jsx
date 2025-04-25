@@ -44,8 +44,7 @@ export default function ShootPage() {
             <img
               src={src}
               alt={`${title} ${i + 1}`}
-              className="w-full max-w-4xl mx-auto object-contain rounded shadow"
-            />
+              className="w-full max-w-4xl mx-auto object-contain shadow"
           </a>
         ))}
       </div>
