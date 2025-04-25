@@ -1,9 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50 p-6">
+    <div className="min-h-screen flex flex-col items-center bg-cl-cream p-6">
+      <Link to="/" className="btn-primary mb-6">
+        Home
+      </Link>
       <motion.img
         src={`${process.env.PUBLIC_URL}/chris.jpeg`}   
         alt="Chris Fitzgerald"
