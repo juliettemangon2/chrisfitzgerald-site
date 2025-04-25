@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chrisfitzgerald-site/static/css/main.67436bf9.css",
-    "main.js": "/chrisfitzgerald-site/static/js/main.b32a99bc.js",
+    "main.js": "/chrisfitzgerald-site/static/js/main.cbd24939.js",
     "static/media/fitzgerald_chris-005.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-005.28151ea7e5237fedbebd.jpg",
     "static/media/fitzgerald_chris-006.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-006.e0ccf1c07f46651133a8.jpg",
     "static/media/fitzgerald_chris-009.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-009.7a89a17a0a356112bfcc.jpg",
@@ -33,10 +33,10 @@
     "static/media/Screen Shot 2023-10-21 at 5.01.05 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.01.05 PM.2d6b37e6f1adfde4e85e.png",
     "index.html": "/chrisfitzgerald-site/index.html",
     "main.67436bf9.css.map": "/chrisfitzgerald-site/static/css/main.67436bf9.css.map",
-    "main.b32a99bc.js.map": "/chrisfitzgerald-site/static/js/main.b32a99bc.js.map"
+    "main.cbd24939.js.map": "/chrisfitzgerald-site/static/js/main.cbd24939.js.map"
   },
   "entrypoints": [
     "static/css/main.67436bf9.css",
-    "static/js/main.b32a99bc.js"
+    "static/js/main.cbd24939.js"
   ]
 }
