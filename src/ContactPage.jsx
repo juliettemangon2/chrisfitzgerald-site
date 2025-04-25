@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cl-cream p-6">
-      <Link to="/" className="btn-primary font-serif absolute top-4 right-4">
+      <Link to="/" className="btn-primary font-serif absolute top-4 left-4">
         Home
       </Link>
 
