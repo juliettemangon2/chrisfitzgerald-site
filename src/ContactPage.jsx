@@ -26,7 +26,16 @@ export default function ContactPage() {
         transition={{ delay: 0.3 }}
       >
         <p>
-          Email:{' '}
+          Personal Email:{' '}
+          <a
+            href="mailto:christophercagney322@gmail.com"
+            className="no-underline hover:underline"
+          >
+            ccf9854@nyu.edu
+          </a>
+        </p>
+        <p>
+          NYU Email:{' '}
           <a
             href="mailto:ccf9854@nyu.edu"
             className="no-underline hover:underline"
