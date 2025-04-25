@@ -30,7 +30,7 @@ export default function ShootPage() {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+   <div className="min-h-screen bg-cl-cream p-6">
       <Link to="/photography" className="text-primary underline mb-4 inline-block">
         ← Back to all shoots
       </Link>
