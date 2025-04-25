@@ -7,26 +7,19 @@ export default function LandingPage() {
   const [displayed, setDisplayed] = useState('');
   const [idx, setIdx] = useState(0);
 
+  // simple looping typewriter effect
   useEffect(() => {
-    let timeout1;
-    let timeout2;
-
-    if (idx < fullText.length) {
-      timeout1 = setTimeout(() => {
+    const timeout = setTimeout(() => {
+      if (idx < fullText.length) {
         setDisplayed((prev) => prev + fullText[idx]);
         setIdx(idx + 1);
-      }, 150);
-    } else {
-      timeout2 = setTimeout(() => {
+      } else {
         setDisplayed('');
         setIdx(0);
-      }, 2000);
-    }
+      }
+    }, idx < fullText.length ? 150 : 2000);
 
-    return () => {
-      clearTimeout(timeout1);
-      clearTimeout(timeout2);
-    };
+    return () => clearTimeout(timeout);
   }, [idx, fullText]);
 
   return (
@@ -47,7 +40,7 @@ export default function LandingPage() {
             to="/about"
             className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
           >
-            About Me
+            About&nbsp;Me
           </Link>
         </motion.div>
 
@@ -68,12 +61,6 @@ export default function LandingPage() {
             Contact
           </Link>
         </motion.div>
-      </div>
-    </div>
-  );
-}
-
-
       </div>
     </div>
   );
