@@ -1,27 +1,28 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- …other meta tags… -->
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chris Fitzgerald</title>
 
-  <!-- 1) YOUR CONFIG -->
+  <!-- 1) Tailwind config must come BEFORE loading the CDN -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#12245' /* your custom color */,
-          },
-        },
-      },
+            primary: '#12245e'
+          }
+        }
+      }
     }
   </script>
 
-  <!-- 2) THEN THE CDN -->
+  <!-- 2) Then load the CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div id="root"></div>
 </body>
 </html>
-
