@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'cl-cream':  '#FAF8F2',
+        'cl-cream':  '#fffaeb',
         'cl-ink':    '#1C1B16',
-        'cl-orange': '#FF6C3F',
+        'cl-orange': '#ff7f3f',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
