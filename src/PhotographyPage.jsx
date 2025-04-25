@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';  // ← Link added
 
-// ――― 1. Import every JPG/PNG in src/assets/images/**  ―――
+// 1. Import every JPG/PNG in src/assets/images/**
 function importAll(r) {
   return r.keys().map((key) => ({
-    path: r(key),                // bundle URL
-    file: key.replace('./', ''), // studioshoots/img1.jpg
+    path: r(key),
+    file: key.replace('./', ''),
   }));
 }
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
 );
 
-// ――― 2. Group images by their top-level folder ―――
+// 2. Group by folder
 const projects = Object.entries(
   allImages.reduce((map, { path, file }) => {
     const [folder] = file.split('/');
@@ -22,23 +22,20 @@ const projects = Object.entries(
   }, {})
 ).map(([id, images]) => ({
   id,
-  title: id                 // “sunset-portraits” → “Sunset Portraits”
-    .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase()),
+  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
   cover: images[0],
   images,
 }));
 
-// ――― 3. Component ―――
+// 3. Component
 export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-cl-cream p-6">
-      <Link to="/" className="btn-primary mb-6">
-        Home
-      </Link>
-      <h1 className="text-4xl font-bold text-primary text-center mb-8">
+      <Link to="/" className="btn-primary mb-6">← Home</Link>
+
+      <h1 className="text-4xl font-bold text-cl-ink text-center mb-8">
         Photography
       </h1>
 
@@ -59,7 +56,7 @@ export default function PhotographyPage() {
               />
             </div>
 
-            {/* centered title overlay */}
+            {/* centered title */}
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-white text-lg font-serif font-semibold drop-shadow">
                 {proj.title}
@@ -71,4 +68,3 @@ export default function PhotographyPage() {
     </div>
   );
 }
-
