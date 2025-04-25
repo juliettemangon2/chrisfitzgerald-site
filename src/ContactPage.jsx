@@ -6,8 +6,8 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-cl-cream p-6">
       {/* top-right Home button */}
-      <Link to="/" className="btn-primary font-serif absolute top-4 right-4">
-        ← Home
+      <Link to="/" className="btn-primary font-serif absolute top-4 left-4">
+         Home
       </Link>
 
       <motion.h1
