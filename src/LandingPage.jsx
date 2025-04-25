@@ -28,7 +28,7 @@ export default function LandingPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="text-6xl font-extrabold mb-8 text-primary flex items-center"
+        className="text-6xl font-extrabold mb-8 text-cl-ink flex items-center"
       >
         {displayed}
         <span className="border-r-2 border-primary ml-1 animate-blink" />
@@ -38,8 +38,7 @@ export default function LandingPage() {
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link
             to="/about"
-            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
-          >
+           className="btn-primary">
             About&nbsp;Me
           </Link>
         </motion.div>
@@ -47,8 +46,7 @@ export default function LandingPage() {
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link
             to="/photography"
-            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
-          >
+           className="btn-primary">
             Photography
           </Link>
         </motion.div>
@@ -56,8 +54,7 @@ export default function LandingPage() {
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link
             to="/contact"
-            className="inline-block px-6 py-3 bg-primary text-white rounded-lg"
-          >
+          className="btn-primary">
             Contact
           </Link>
         </motion.div>
