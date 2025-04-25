@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import { motion }        from 'framer-motion'
 import GalleryModal      from './components/GalleryModal'
-
-// 1. Import all images under src/assets/images/** 
 function importAll(r) {
   return r.keys().map((key) => ({
     path: r(key),
