@@ -34,7 +34,7 @@ export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-cl-cream p-6">
       <h1 className="text-4xl font-bold text-primary text-center mb-8">
         Photography
       </h1>
