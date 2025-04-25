@@ -58,7 +58,7 @@ export default function PhotographyPage() {
 
             {/* centered title overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-cl-ink text-lg font-serif font-semibold drop-shadow">
+              <span className="text-white text-lg font-serif font-semibold drop-shadow">
                 {proj.title}
               </span>
             </div>
