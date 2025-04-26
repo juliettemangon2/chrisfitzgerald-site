@@ -36,7 +36,7 @@ export default function LandingPage() {
         <span className="border-r-2 border-primary ml-1 animate-blink" />
       </motion.h1>
 
-      <div className="flex space-x-4">
+     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link to="/about" className="btn-primary font-serif">
             About&nbsp;Me
