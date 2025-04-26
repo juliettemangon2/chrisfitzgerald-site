@@ -32,7 +32,7 @@ export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-cl-cream p-6">
+    <div className="relative min-h-screen bg-cl-cream p-6 pt-24 sm:pt-12">
       <Link to="/" className="btn-primary font-serif absolute top-4 left-4">Home</Link>
 
       <h1 className="text-4xl font-bold text-cl-ink text-center mb-8">
