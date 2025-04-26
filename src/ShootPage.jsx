@@ -41,7 +41,7 @@ export default function ShootPage() {
       </Link>
 
       {/* title pushed below the button */}
-      <h1 className="mt-16 text-3xl font-bold font-serif text-cl-ink mb-6">
+      <h1 className="mt-24 sm:mt-16 text-2xl sm:text-3xl font-bold font-serif text-cl-ink mb-6">
         {title}
       </h1>
 
