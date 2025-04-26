@@ -36,7 +36,7 @@ export default function LandingPage() {
         <span className="border-r-2 border-primary ml-1 animate-blink" />
       </motion.h1>
 
-     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+      <Link to="/about" className="btn-primary font-serif w-full sm:w-auto text-center">
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link to="/about" className="btn-primary font-serif">
             About&nbsp;Me
@@ -44,14 +44,13 @@ export default function LandingPage() {
         </motion.div>
 
         <motion.div whileHover={{ scale: 1.05 }}>
-          <Link to="/photography" className="btn-primary font-serif">
+          <Link to="/photography" className="btn-primary font-serif w-full sm:w-auto text-center">
             Photography
           </Link>
         </motion.div>
 
         <motion.div whileHover={{ scale: 1.05 }}>
-          <Link to="/contact" className="btn-primary font-serif">
-            Contact
+          <Link to="/contact" className="btn-primary font-serif w-full sm:w-auto text-center">
           </Link>
         </motion.div>
       </div>
