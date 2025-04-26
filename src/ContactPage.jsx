@@ -31,7 +31,7 @@ export default function ContactPage() {
             href="mailto:christophercagney322@gmail.com"
             className="no-underline hover:underline"
           >
-            ccf9854@nyu.edu
+            christophercagney322@gmail.com
           </a>
         </p>
         <p>
