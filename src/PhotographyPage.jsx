@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';  // ← Link added
+import { Link, useNavigate } from 'react-router-dom';
 
-// 1. Import every JPG/PNG in src/assets/images/**
 function importAll(r) {
   return r.keys().map((key) => ({
     path: r(key),
@@ -13,7 +12,6 @@ const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
 );
 
-// 2. Group by folder
 const projects = Object.entries(
   allImages.reduce((map, { path, file }) => {
     const [folder] = file.split('/');
@@ -27,13 +25,14 @@ const projects = Object.entries(
   images,
 }));
 
-// 3. Component
 export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen bg-cl-cream p-6 pt-24 sm:pt-12">
-      <Link to="/" className="btn-primary font-serif absolute top-4 left-4">Home</Link>
+      <Link to="/" className="absolute top-4 left-4 bg-cl-orange text-cl-cream px-4 py-2 rounded-full font-serif text-sm shadow hover:bg-cl-ink hover:text-cl-cream transition">
+        Home
+      </Link>
 
       <h1 className="text-4xl font-bold text-cl-ink text-center mb-8">
         Photography
@@ -43,12 +42,11 @@ export default function PhotographyPage() {
         {projects.map((proj) => (
           <motion.div
             key={proj.id}
-            whileHover={{ scale: 1.04 }}
-            className="relative cursor-pointer shadow-lg"
+            whileHover={{ scale: 1.05 }}
+            className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
             onClick={() => navigate(`/photography/${proj.id}`)}
           >
-            {/* square thumbnail */}
-            <div className="aspect-square w-full overflow-hidden">
+            <div className="aspect-square w-full">
               <img
                 src={proj.cover}
                 alt={proj.title}
@@ -56,9 +54,8 @@ export default function PhotographyPage() {
               />
             </div>
 
-            {/* centered title */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white text-lg font-serif font-semibold drop-shadow">
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+              <span className="text-white text-lg font-serif font-semibold tracking-wide">
                 {proj.title}
               </span>
             </div>
