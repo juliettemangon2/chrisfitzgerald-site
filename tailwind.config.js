@@ -10,6 +10,7 @@ module.exports = {
         'cl-cream':  '#fffaeb',
         'cl-ink':    '#1C1B16',
         'cl-orange': '#ff7f3f',
+        'cl-silver': '#bac7cc',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
