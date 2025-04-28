@@ -46,7 +46,7 @@ export default function ShootPage() {
             <img
               src={src}
               alt={`${title} ${i + 1}`}
-              className="w-full max-w-4xl mx-auto object-contain rounded-lg shadow-lg transition hover:scale-105"
+              className="w-full max-w-4xl mx-auto object-contain shadow-lg transition hover:scale-105"
             />
           </a>
         ))}
