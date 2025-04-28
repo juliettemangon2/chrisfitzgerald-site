@@ -43,7 +43,7 @@ export default function PhotographyPage() {
           <motion.div
             key={proj.id}
             whileHover={{ scale: 1.05 }}
-            className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+            className="relative cursor-pointer overflow-hidden shadow-lg"
             onClick={() => navigate(`/photography/${proj.id}`)}
           >
             <div className="aspect-square w-full">
