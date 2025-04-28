@@ -15,7 +15,7 @@ export default function ContactPage() {
 
       {/* Business Card Container */}
       <motion.div
-        className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md text-center border-2 border-cl-ink"
+        className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md text-center border-2 border-cl-orange"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
