@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { AuroraBackground } from "../ui/aurora-background";
+import { AuroraBackground } from "./ui/aurora-background";
 
 export default function LandingPage() {
   return (
