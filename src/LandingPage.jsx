@@ -16,7 +16,8 @@ export default function LandingPage() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-32"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4"
+
       >
         {/* Name */}
         <h1 className="text-5xl sm:text-7xl font-serif font-extrabold text-cl-ink tracking-wide mb-6">
