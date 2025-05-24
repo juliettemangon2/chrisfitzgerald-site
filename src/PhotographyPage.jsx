@@ -20,7 +20,7 @@ const projects = Object.entries(
   }, {})
 ).map(([id, images]) => ({
   id,
-  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+  title: id.replace(/[-_]/g, ' ').replace(/\w/g, (c) => c.toUpperCase()),
   cover: images[0],
   images,
 }));
@@ -30,7 +30,7 @@ export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen bg-white text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
+    <div className="relative min-h-screen bg-[#f4e6ff] text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
       <div className="absolute top-6 right-6 z-20">
         <button
           className="text-2xl font-bold"
@@ -62,9 +62,9 @@ export default function PhotographyPage() {
         )}
       </AnimatePresence>
 
-      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-8">
+      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-10">
         <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {projects.map((proj) => (
             <div
               key={proj.id}
@@ -76,7 +76,7 @@ export default function PhotographyPage() {
                 alt={proj.title}
                 className="w-full h-64 object-cover"
               />
-              <p className="mt-2 text-center text-lg font-light">{proj.title}</p>
+              <p className="mt-3 text-center text-lg font-light">{proj.title}</p>
             </div>
           ))}
         </div>
