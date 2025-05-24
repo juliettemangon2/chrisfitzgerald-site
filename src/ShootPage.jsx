@@ -21,32 +21,30 @@ export default function ShootPage() {
   const { projectId } = useParams();
   const images = projects[projectId] || [];
 
-  if (!images.length) return <p className="p-6 text-cl-ink">Shoot not found.</p>;
+  if (!images.length) return <p className="p-6 text-neutral-800">Shoot not found.</p>;
 
   const title = projectId
     .replace(/[-_]/g, ' ')
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
-    <div className="relative min-h-screen bg-cl-cream p-6">
+    <div className="min-h-screen bg-white text-neutral-800 px-6 py-12 font-sans">
       <Link
         to="/photography"
-        className="absolute top-4 left-4 bg-cl-orange text-cl-cream px-4 py-2 rounded-full font-serif text-sm hover:bg-cl-ink hover:text-cl-cream transition shadow"
+        className="text-sm text-sky-500 font-light mb-10 block hover:underline"
       >
         ← All Shoots
       </Link>
 
-      <h1 className="mt-24 sm:mt-16 text-3xl font-serif font-bold text-cl-ink mb-8 text-center">
-        {title}
-      </h1>
+      <h1 className="text-3xl font-light mb-10 text-center">{title}</h1>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         {images.map((src, i) => (
           <a key={i} href={src} target="_blank" rel="noopener noreferrer">
             <img
               src={src}
               alt={`${title} ${i + 1}`}
-              className="w-full max-w-4xl mx-auto object-contain shadow-lg transition hover:scale-105"
+              className="w-full max-w-5xl mx-auto object-contain transition hover:scale-[1.01]"
             />
           </a>
         ))}
