@@ -29,35 +29,28 @@ export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen bg-cl-cream p-6 pt-24 sm:pt-12">
-      <Link to="/" className="absolute top-4 left-4 bg-cl-orange text-cl-cream px-4 py-2 rounded-full font-serif text-sm shadow hover:bg-cl-ink hover:text-cl-cream transition">
-        Home
+    <div className="min-h-screen bg-white text-neutral-800 px-6 py-12 font-sans">
+      <Link to="/" className="text-sm text-sky-500 font-light hover:underline mb-10 block">
+        ← Back to Home
       </Link>
 
-      <h1 className="text-4xl font-bold text-cl-ink text-center mb-8">
-        Photography
-      </h1>
+      <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {projects.map((proj) => (
           <motion.div
             key={proj.id}
-            whileHover={{ scale: 1.05 }}
-            className="relative cursor-pointer overflow-hidden shadow-lg"
+            whileHover={{ scale: 1.02 }}
+            className="cursor-pointer rounded-lg overflow-hidden border border-neutral-200"
             onClick={() => navigate(`/photography/${proj.id}`)}
           >
-            <div className="aspect-square w-full">
-              <img
-                src={proj.cover}
-                alt={proj.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
-              <span className="text-white text-lg font-serif font-semibold tracking-wide">
-                {proj.title}
-              </span>
+            <img
+              src={proj.cover}
+              alt={proj.title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="bg-white text-sky-600 p-4 text-center font-light text-lg">
+              {proj.title}
             </div>
           </motion.div>
         ))}
