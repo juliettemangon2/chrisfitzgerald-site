@@ -14,7 +14,7 @@ export default function AboutPage() {
 
       <div className="flex flex-col md:flex-row items-center gap-12">
         <motion.img
-          src={\`\${process.env.PUBLIC_URL}/chris.jpeg\`}
+          src={process.env.PUBLIC_URL + "/chris.jpeg"}
           alt="Chris Fitzgerald"
           className="w-60 h-60 object-cover rounded-full shadow-md"
           initial={{ scale: 0.9, opacity: 0 }}
