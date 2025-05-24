@@ -22,8 +22,7 @@ export default function LandingPage() {
   const words = ["Photographer.", "Storyteller.", "Creative Thinker."];
 
   return (
-    <div className="relative min-h-screen bg-[#0057FF] text-white font-sans overflow-hidden">
-      {/* Menu Button */}
+    <div className="relative min-h-screen bg-[#0e9fe3] text-[#f4e6ff] font-sans overflow-hidden">
       <div className="absolute top-6 right-6 z-20">
         <button
           className="text-2xl font-bold"
@@ -33,7 +32,6 @@ export default function LandingPage() {
         </button>
       </div>
 
-      {/* Sidebar */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -41,9 +39,10 @@ export default function LandingPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#0e9fe3] z-30 p-8 flex flex-col items-start gap-10"
           >
             <h2 className="text-3xl font-bold">Chris</h2>
+            <h2 className="text-3xl font-bold">Fitzgerald.</h2>
             <div className="flex flex-col gap-6 mt-4">
               {navItems.map(({ name, path }) => (
                 <Link
@@ -60,7 +59,6 @@ export default function LandingPage() {
         )}
       </AnimatePresence>
 
-      {/* Hero Text */}
       <div className="flex flex-col justify-center items-start h-screen px-8 sm:px-24">
         {words.map((word, i) => (
           <motion.h1
