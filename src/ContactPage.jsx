@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-cl-cream p-6">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-white p-6">
       <Link
         to="/"
         className="absolute top-4 left-4 bg-cl-orange text-cl-cream px-4 py-2 rounded-full font-serif text-sm shadow hover:bg-cl-ink hover:text-cl-cream transition"
