@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 function importAll(r) {
@@ -11,23 +11,22 @@ function importAll(r) {
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
 );
+const projects = allImages.reduce((map, { path, file }) => {
+  const [folder] = file.split('/');
+  (map[folder] = map[folder] || []).push(path);
+  return map;
+}, {});
 
-const projects = Object.entries(
-  allImages.reduce((map, { path, file }) => {
-    const [folder] = file.split('/');
-    (map[folder] = map[folder] || []).push(path);
-    return map;
-  }, {})
-).map(([id, images]) => ({
-  id,
-  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
-  cover: images[0],
-  images,
-}));
-
-export default function PhotographyPage() {
+export default function ShootPage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const { projectId } = useParams();
+  const images = projects[projectId] || [];
+
+  const title = projectId
+    ? projectId.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+    : "";
+
+  if (!images.length) return <p className="p-6 text-[#026ead]">Shoot not found.</p>;
 
   return (
     <div className="relative min-h-screen bg-white text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
@@ -62,24 +61,23 @@ export default function PhotographyPage() {
         )}
       </AnimatePresence>
 
-      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-8">
-        <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {projects.map((proj) => (
-            <div
-              key={proj.id}
-              className="cursor-pointer"
-              onClick={() => navigate(`/photography/${proj.id}`)}
-            >
-              <img
-                src={proj.cover}
-                alt={proj.title}
-                className="w-full h-64 object-cover"
-              />
-              <p className="mt-2 text-center text-lg font-light">{proj.title}</p>
-            </div>
-          ))}
-        </div>
+      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-10">
+        <h1 className="text-3xl font-light text-center">{title}</h1>
+        <Link
+          to="/photography"
+          className="block text-sm font-medium text-[#026ead] mt-4 mb-6 text-center hover:underline"
+        >
+          Back to Photography
+        </Link>
+        {images.map((src, i) => (
+          <a key={i} href={src} target="_blank" rel="noopener noreferrer">
+            <img
+              src={src}
+              alt={`${title} ${i + 1}`}
+              className="w-full max-w-4xl mx-auto object-contain transition hover:scale-[1.01]"
+            />
+          </a>
+        ))}
       </div>
     </div>
   );
