@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chrisfitzgerald-site/static/css/main.ad20267b.css",
-    "main.js": "/chrisfitzgerald-site/static/js/main.f0148f46.js",
+    "main.css": "/chrisfitzgerald-site/static/css/main.b993a1f7.css",
+    "main.js": "/chrisfitzgerald-site/static/js/main.bc808016.js",
     "static/media/fitzgerald_chris-005.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-005.28151ea7e5237fedbebd.jpg",
     "static/media/fitzgerald_chris-018.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-018.69b7475f0bb0dbe21468.jpg",
     "static/media/fitzgerald_chris-006.jpg": "/chrisfitzgerald-site/static/media/fitzgerald_chris-006.e0ccf1c07f46651133a8.jpg",
@@ -32,11 +32,11 @@
     "static/media/Screen Shot 2023-10-21 at 4.59.24 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 4.59.24 PM.8086c7a93aa62f6ae410.png",
     "static/media/Screen Shot 2023-10-21 at 5.01.05 PM.png": "/chrisfitzgerald-site/static/media/Screen Shot 2023-10-21 at 5.01.05 PM.2d6b37e6f1adfde4e85e.png",
     "index.html": "/chrisfitzgerald-site/index.html",
-    "main.ad20267b.css.map": "/chrisfitzgerald-site/static/css/main.ad20267b.css.map",
-    "main.f0148f46.js.map": "/chrisfitzgerald-site/static/js/main.f0148f46.js.map"
+    "main.b993a1f7.css.map": "/chrisfitzgerald-site/static/css/main.b993a1f7.css.map",
+    "main.bc808016.js.map": "/chrisfitzgerald-site/static/js/main.bc808016.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad20267b.css",
-    "static/js/main.f0148f46.js"
+    "static/css/main.b993a1f7.css",
+    "static/js/main.bc808016.js"
   ]
 }
