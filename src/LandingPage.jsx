@@ -1,44 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navItems = [
+  { name: "About", path: "/about", color: "text-blue-500" },
+  { name: "Photography", path: "/photography", color: "text-pink-500" },
+  { name: "Contact", path: "/contact", color: "text-green-500" }
+];
 
 export default function LandingPage() {
-  const navItems = [
-    { label: "About", href: "/about" },
-    { label: "Photography", href: "/photography" },
-    { label: "Contact", href: "/contact" }
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-cl-ink text-cl-cream px-6 py-12 flex flex-col items-center justify-center">
-      <motion.h1
-        className="text-6xl sm:text-8xl font-extrabold mb-6 text-center"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Chris Fitzgerald
-      </motion.h1>
+    <div className="relative min-h-screen bg-white font-sans text-gray-900">
+      {/* Top bar */}
+      <div className="absolute top-6 left-6 z-20">
+        <button
+          className="text-xl font-light tracking-wide text-red-500 focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          Menu
+        </button>
+      </div>
 
-      <motion.p
-        className="text-xl sm:text-2xl text-cl-silver mb-12 text-center max-w-2xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        Photographer. Visual storyteller. Creator based in NYC.
-      </motion.p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
-        {navItems.map(({ label, href }, index) => (
+      {/* Sidebar menu */}
+      <AnimatePresence>
+        {menuOpen && (
           <motion.div
-            key={label}
-            whileHover={{ scale: 1.05 }}
-            className="rounded-xl bg-cl-orange text-cl-cream font-bold py-6 px-4 text-center transition-all shadow-lg hover:bg-white hover:text-cl-ink"
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed top-0 left-0 w-64 h-full bg-gray-50 shadow-xl z-30 p-8 flex flex-col gap-6"
           >
-            <Link to={href} className="text-xl block">{label}</Link>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Navigation</h2>
+            {navItems.map(({ name, path, color }) => (
+              <Link
+                key={name}
+                to={path}
+                className={`text-xl font-light hover:underline ${color}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {name}
+              </Link>
+            ))}
           </motion.div>
-        ))}
+        )}
+      </AnimatePresence>
+
+      {/* Main content */}
+      <div className="h-screen flex items-center justify-center px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="text-6xl sm:text-8xl font-extralight tracking-tight">
+            Chris Fitzgerald
+          </h1>
+        </motion.div>
       </div>
     </div>
   );
