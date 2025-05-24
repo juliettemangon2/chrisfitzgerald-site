@@ -2,21 +2,20 @@
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(255, 127, 63, 0.5), transparent 60%),  /* cl-orange */
-    radial-gradient(ellipse at 80% 30%, rgba(255, 250, 235, 0.5), transparent 70%),  /* cl-cream */
-    radial-gradient(ellipse at 50% 80%, rgba(186, 199, 204, 0.5), transparent 70%);  /* cl-silver */
-  animation: auroraMove 16s ease-in-out infinite;
-  filter: blur(100px);
-  opacity: 0.8;
+    radial-gradient(ellipse at 20% 20%, rgba(255, 63, 94, 0.4), transparent 60%),   /* bright pink/red */
+    radial-gradient(ellipse at 80% 20%, rgba(0, 209, 255, 0.3), transparent 70%),   /* electric blue */
+    radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.1), transparent 60%);
+  animation: auroraMove 18s ease-in-out infinite;
+  filter: blur(120px);
+  opacity: 0.85;
 }
-
 
 @keyframes auroraMove {
   0% {
     transform: translate(0%, 0%) scale(1);
   }
   50% {
-    transform: translate(-10%, -10%) scale(1.05);
+    transform: translate(-5%, -5%) scale(1.05);
   }
   100% {
     transform: translate(0%, 0%) scale(1);
