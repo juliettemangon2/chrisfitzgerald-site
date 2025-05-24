@@ -41,18 +41,21 @@ export default function LandingPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-64 h-full bg-white text-neutral-800 z-30 p-6 flex flex-col gap-4"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
           >
-            {navItems.map(({ name, path }) => (
-              <Link
-                key={name}
-                to={path}
-                className="text-lg font-light hover:underline"
-                onClick={() => setMenuOpen(false)}
-              >
-                {name}
-              </Link>
-            ))}
+            <h2 className="text-3xl font-bold">Chris</h2>
+            <div className="flex flex-col gap-6 mt-4">
+              {navItems.map(({ name, path }) => (
+                <Link
+                  key={name}
+                  to={path}
+                  className="text-2xl font-medium"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
