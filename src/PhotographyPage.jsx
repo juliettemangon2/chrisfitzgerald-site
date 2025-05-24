@@ -1,6 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
 
 function importAll(r) {
   return r.keys().map((key) => ({
@@ -26,34 +26,61 @@ const projects = Object.entries(
 }));
 
 export default function PhotographyPage() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white text-neutral-800 px-6 py-12 font-sans">
-      <Link to="/" className="text-sm text-sky-500 font-light hover:underline mb-10 block">
-        ← Back to Home
-      </Link>
+    <div className="relative min-h-screen bg-white text-[#111111] font-sans overflow-hidden px-6 sm:px-20 py-12">
+      {/* Menu */}
+      <div className="absolute top-6 right-6 z-20">
+        <button
+          className="text-2xl font-bold"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+      </div>
 
-      <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {projects.map((proj) => (
+      <AnimatePresence>
+        {menuOpen && (
           <motion.div
-            key={proj.id}
-            whileHover={{ scale: 1.02 }}
-            className="cursor-pointer rounded-lg overflow-hidden border border-neutral-200"
-            onClick={() => navigate(`/photography/${proj.id}`)}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4 }}
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
           >
-            <img
-              src={proj.cover}
-              alt={proj.title}
-              className="w-full h-64 object-cover"
-            />
-            <div className="bg-white text-sky-600 p-4 text-center font-light text-lg">
-              {proj.title}
+            <h2 className="text-3xl font-bold">Chris</h2>
+            <div className="flex flex-col gap-6 mt-4">
+              <Link to="/about" className="text-2xl font-medium">About</Link>
+              <Link to="/photography" className="text-2xl font-medium">Photography</Link>
+              <Link to="/contact" className="text-2xl font-medium">Contact</Link>
             </div>
           </motion.div>
-        ))}
+        )}
+      </AnimatePresence>
+
+      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-8">
+        <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {projects.map((proj) => (
+            <motion.div
+              key={proj.id}
+              whileHover={{ scale: 1.02 }}
+              className="cursor-pointer rounded-lg overflow-hidden border border-neutral-200"
+              onClick={() => navigate(`/photography/${proj.id}`)}
+            >
+              <img
+                src={proj.cover}
+                alt={proj.title}
+                className="w-full h-64 object-cover"
+              />
+              <div className="bg-white text-sky-600 p-4 text-center font-light text-lg">
+                {proj.title}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
