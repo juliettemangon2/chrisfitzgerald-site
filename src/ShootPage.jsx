@@ -26,11 +26,10 @@ export default function ShootPage() {
     ? projectId.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
     : "";
 
-  if (!images.length) return <p className="p-6 text-[#111111]">Shoot not found.</p>;
+  if (!images.length) return <p className="p-6 text-[#0e9fe3]">Shoot not found.</p>;
 
   return (
-    <div className="relative min-h-screen bg-white text-[#111111] font-sans overflow-hidden px-6 sm:px-20 py-12">
-      {/* Menu Button */}
+    <div className="relative min-h-screen bg-[#f4e6ff] text-[#0e9fe3] font-sans overflow-hidden px-6 sm:px-20 py-12">
       <div className="absolute top-6 right-6 z-20">
         <button
           className="text-2xl font-bold"
@@ -40,7 +39,6 @@ export default function ShootPage() {
         </button>
       </div>
 
-      {/* Sidebar */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -48,9 +46,12 @@ export default function ShootPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#0e9fe3] z-30 p-8 flex flex-col items-start gap-10"
           >
-            <h2 className="text-3xl font-bold">Chris</h2>
+            <div>
+              <h2 className="text-3xl font-bold">Chris</h2>
+              <h2 className="text-3xl font-bold">Fitzgerald.</h2>
+            </div>
             <div className="flex flex-col gap-6 mt-4">
               <Link to="/about" className="text-2xl font-medium">About</Link>
               <Link to="/photography" className="text-2xl font-medium">Photography</Link>
