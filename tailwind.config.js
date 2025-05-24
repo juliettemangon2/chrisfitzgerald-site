@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     './public/index.html',
-    './src/**/*.{js,jsx}',      // make sure tailwind can scan your components
+    './src/**/*.{js,jsx}', // make sure tailwind can scan your components
   ],
   theme: {
     extend: {
@@ -14,11 +14,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-        serif: ['"Playfair Display"', 'ui-serif', 'Georgia'],
+        serif: ['Inter', 'ui-serif', 'Georgia'],
       },
     },
   },
   plugins: [],
 };
-
-  
