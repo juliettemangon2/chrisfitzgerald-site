@@ -5,17 +5,10 @@
 /* ---------- Defaults ---------- */
 @layer base {
   html {
-    @apply bg-cl-cream text-cl-ink font-sans;
+    @apply bg-white text-[#111111] font-sans;
   }
-  h1, h2, h3, h4 {
-    @apply font-serif;
-  }
-}
 
-/* ---------- Re-usable button class ---------- */
-@layer components {
-  .btn-primary {
-    @apply inline-block px-6 py-3  bg-cl-ink text-white
-           hover:bg-cl-orange transition-colors;
+  h1, h2, h3, h4 {
+    @apply font-sans;
   }
 }
