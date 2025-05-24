@@ -2,19 +2,17 @@
 module.exports = {
   content: [
     './public/index.html',
-    './src/**/*.{js,jsx}', // make sure tailwind can scan your components
+    './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {
       colors: {
-        'cl-cream':  '#fffaeb',
-        'cl-ink':    '#1C1B16',
-        'cl-orange': '#ff7f3f',
-        'cl-silver': '#bac7cc',
+        'brand-blue': '#0057FF',
+        'brand-white': '#FFFFFF',
+        'brand-text': '#111111',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-        serif: ['Inter', 'ui-serif', 'Georgia'],
       },
     },
   },
