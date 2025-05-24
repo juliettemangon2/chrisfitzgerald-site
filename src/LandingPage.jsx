@@ -1,47 +1,45 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { AuroraBackground } from "./ui/aurora-background";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
+  const navItems = [
+    { label: "About", href: "/about" },
+    { label: "Photography", href: "/photography" },
+    { label: "Contact", href: "/contact" }
+  ];
+
   return (
-    <AuroraBackground>
-      <motion.div
+    <div className="min-h-screen bg-cl-ink text-cl-cream px-6 py-12 flex flex-col items-center justify-center">
+      <motion.h1
+        className="text-6xl sm:text-8xl font-extrabold mb-6 text-center"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4"
-
+        transition={{ duration: 0.8 }}
       >
-        {/* Name */}
-        <h1 className="text-5xl sm:text-7xl font-serif font-extrabold text-cl-ink tracking-wide mb-6">
-          Chris Fitzgerald
-        </h1>
+        Chris Fitzgerald
+      </motion.h1>
 
-        {/* Subtitle */}
-        <p className="text-xl sm:text-2xl font-serif text-cl-ink/80 mb-10">
-          Photographer | Artist | Creator
-        </p>
+      <motion.p
+        className="text-xl sm:text-2xl text-cl-silver mb-12 text-center max-w-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        Photographer. Visual storyteller. Creator based in NYC.
+      </motion.p>
 
-        {/* Navigation Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          {["about", "photography", "contact"].map((page) => (
-            <Link
-              key={page}
-              to={`/${page}`}
-              className="px-6 py-3 rounded-full bg-cl-orange text-cl-cream font-serif text-lg transition hover:bg-cl-ink hover:text-cl-cream shadow-md"
-            >
-              {page.charAt(0).toUpperCase() + page.slice(1)}
-            </Link>
-          ))}
-        </div>
-      </motion.div>
-    </AuroraBackground>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
+        {navItems.map(({ label, href }, index) => (
+          <motion.div
+            key={label}
+            whileHover={{ scale: 1.05 }}
+            className="rounded-xl bg-cl-orange text-cl-cream font-bold py-6 px-4 text-center transition-all shadow-lg hover:bg-white hover:text-cl-ink"
+          >
+            <Link to={href} className="text-xl block">{label}</Link>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
