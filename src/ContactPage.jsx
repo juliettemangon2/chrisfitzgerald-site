@@ -1,45 +1,61 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+const contacts = [
+  { label: "Personal Email", href: "mailto:christophercagney322@gmail.com", text: "christophercagney322@gmail.com" },
+  { label: "NYU Email", href: "mailto:ccf9854@nyu.edu", text: "ccf9854@nyu.edu" },
+  { label: "Phone", href: "tel:+16174857367", text: "+1 (617) 485-7367" }
+];
 
 export default function ContactPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-white p-6">
-      <Link
-        to="/"
-        className="absolute top-4 left-4 bg-cl-orange text-cl-cream px-4 py-2 rounded-full font-serif text-sm shadow hover:bg-cl-ink hover:text-cl-cream transition"
-      >
-        Home
-      </Link>
+    <div className="relative min-h-screen bg-white text-[#111111] font-sans overflow-hidden px-6 sm:px-20 py-12">
+      {/* Menu Button */}
+      <div className="absolute top-6 right-6 z-20">
+        <button
+          className="text-2xl font-bold"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+      </div>
 
-      <motion.div
-        className="bg-cl-silver shadow-xl rounded-xl p-8 w-full max-w-md text-center border-2 border-cl-orange"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h1 className="text-4xl font-serif font-bold text-cl-ink mb-8">
-          Contact
-        </h1>
+      {/* Sidebar */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4 }}
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
+          >
+            <h2 className="text-3xl font-bold">Chris</h2>
+            <div className="flex flex-col gap-6 mt-4">
+              <Link to="/about" className="text-2xl font-medium">About</Link>
+              <Link to="/photography" className="text-2xl font-medium">Photography</Link>
+              <Link to="/contact" className="text-2xl font-medium">Contact</Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        <div className="space-y-6 text-lg font-serif text-cl-ink">
-          {[
-            { label: "Personal Email", link: "mailto:christophercagney322@gmail.com", text: "christophercagney322@gmail.com" },
-            { label: "NYU Email", link: "mailto:ccf9854@nyu.edu", text: "ccf9854@nyu.edu" },
-            { label: "Phone", link: "tel:+16174857367", text: "+1 (617) 485-7367" }
-          ].map(({ label, link, text }, i) => (
+      <div className="max-w-xl mx-auto mt-20 sm:mt-28 space-y-8">
+        <h1 className="text-3xl font-light text-center">Contact</h1>
+        <div className="space-y-6 text-lg font-light">
+          {contacts.map(({ label, href, text }, i) => (
             <div key={i}>
-              <p className="font-bold">{label}</p>
-              <a
-                href={link}
-                className="hover:underline text-cl-ink/90 hover:text-cl-orange transition"
-              >
+              <p className="font-semibold">{label}</p>
+              <a href={href} className="hover:underline text-sky-600">
                 {text}
               </a>
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
