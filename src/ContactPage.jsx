@@ -12,8 +12,7 @@ export default function ContactPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-white text-[#111111] font-sans overflow-hidden px-6 sm:px-20 py-12">
-      {/* Menu Button */}
+    <div className="relative min-h-screen bg-[#f4e6ff] text-[#0e9fe3] font-sans overflow-hidden px-6 sm:px-20 py-12">
       <div className="absolute top-6 right-6 z-20">
         <button
           className="text-2xl font-bold"
@@ -23,7 +22,6 @@ export default function ContactPage() {
         </button>
       </div>
 
-      {/* Sidebar */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -31,9 +29,12 @@ export default function ContactPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#111111] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#0e9fe3] z-30 p-8 flex flex-col items-start gap-10"
           >
-            <h2 className="text-3xl font-bold">Chris</h2>
+            <div>
+              <h2 className="text-3xl font-bold">Chris</h2>
+              <h2 className="text-3xl font-bold">Fitzgerald.</h2>
+            </div>
             <div className="flex flex-col gap-6 mt-4">
               <Link to="/about" className="text-2xl font-medium">About</Link>
               <Link to="/photography" className="text-2xl font-medium">Photography</Link>
@@ -49,7 +50,7 @@ export default function ContactPage() {
           {contacts.map(({ label, href, text }, i) => (
             <div key={i}>
               <p className="font-semibold">{label}</p>
-              <a href={href} className="hover:underline text-sky-600">
+              <a href={href} className="hover:underline text-[#0e9fe3]">
                 {text}
               </a>
             </div>
