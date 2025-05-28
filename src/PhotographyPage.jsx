@@ -8,6 +8,7 @@ function importAll(r) {
     file: key.replace('./', ''),
   }));
 }
+
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
 );
@@ -20,7 +21,9 @@ const projects = Object.entries(
   }, {})
 ).map(([id, images]) => ({
   id,
-  title: id.replace(/[-_]/g, ' ').replace(/\w/g, (c) => c.toUpperCase()),
+  title: id
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase()), // Capitalizes each word
   cover: images[0],
   images,
 }));
@@ -31,6 +34,7 @@ export default function PhotographyPage() {
 
   return (
     <div className="relative min-h-screen bg-[#f4e6ff] text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
+      {/* Menu Button */}
       <div className="absolute top-6 right-6 z-20">
         <button
           className="text-2xl font-bold"
@@ -40,6 +44,7 @@ export default function PhotographyPage() {
         </button>
       </div>
 
+      {/* Sidebar */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -62,6 +67,7 @@ export default function PhotographyPage() {
         )}
       </AnimatePresence>
 
+      {/* Gallery Content */}
       <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-10">
         <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
