@@ -1,35 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function ContactPage() {
-  const contacts = [
-    { label: "Personal Email", href: "mailto:christophercagney322@gmail.com", text: "christophercagney322@gmail.com" },
-    { label: "NYU Email", href: "mailto:ccf9854@nyu.edu", text: "ccf9854@nyu.edu" },
-    { label: "Phone", href: "tel:+16174857367", text: "+1 (617) 485-7367" }
-  ];
+const navItems = [
+  { name: "About", path: "/about" },
+  { name: "Photography", path: "/photography" },
+  { name: "Contact", path: "/contact" }
+];
+
+export default function AboutPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col sm:flex-row">
-      <div className="flex-1 bg-[#f4e6ff] text-[#026ead] px-10 py-20">
-        <h1 className="text-3xl text-center sm:text-left mb-10">Contact</h1>
-        <div className="space-y-6 text-lg font-light max-w-md mx-auto sm:mx-0">
-          {contacts.map(({ label, href, text }, i) => (
-            <div key={i}>
-              <p className="font-semibold">{label}</p>
-              <a href={href} className="hover:underline block">{text}</a>
-            </div>
-          ))}
-        </div>
+    <div className="relative min-h-screen bg-[#f4e6ff] text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
+      {/* Sidebar toggle */}
+      <div className="absolute top-6 right-6 z-20">
+        <button
+          className="text-2xl font-bold"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
-      <div className="w-full sm:w-64 bg-[#ffab4a] text-[#026ead] p-6 space-y-8 flex flex-col items-start sm:items-center">
-        <Link to="/" className="text-3xl font-bold leading-tight space-y-0">
-          <div>Chris</div>
-          <div className="-mt-2">Fitzgerald.</div>
-        </Link>
-        <div className="text-lg font-medium flex flex-col gap-4">
-          <Link to="/about">About</Link>
-          <Link to="/photography">Photography</Link>
-          <Link to="/contact">Contact</Link>
+
+      {/* Sidebar menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4 }}
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
+          >
+            <Link to="/" className="leading-tight space-y-0">
+              <h2 className="text-3xl font-bold">Chris</h2>
+              <h2 className="text-3xl font-bold -mt-2">Fitzgerald.</h2>
+            </Link>
+            <div className="flex flex-col gap-6 mt-4">
+              {navItems.map(({ name, path }) => (
+                <Link
+                  key={name}
+                  to={path}
+                  className="text-2xl font-medium"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Page content */}
+      <div className="max-w-4xl mx-auto mt-20 sm:mt-28 space-y-10">
+        <h1 className="text-4xl font-light text-center">About Me</h1>
+
+        <div className="w-full flex justify-center">
+          <img
+            src="/chris.jpeg"
+            alt="Chris Fitzgerald"
+            className="w-full sm:w-[320px] h-auto object-cover rounded-md"
+          />
+        </div>
+
+        <div className="space-y-6">
+          {[
+            "Hello! My name is Chris Fitzgerald. I’m a 19-year-old photographer currently based in New York City, where I study Photography & Imaging at NYU Tisch with a double major in Economics.",
+            "Originally from Boston, I’ve explored a wide range of creative work—spanning street and landscape photography, studio portraiture, actors’ headshots, conceptual photo series, and short films across genres.",
+            "Whether I’m behind the camera or in the editing studio, my focus is on using light, color, and composition to tell compelling, emotionally resonant stories.",
+            "I’m currently seeking freelance photography work and internships in the media, art, or entertainment industries—especially roles that let me collaborate, sharpen my technical skills, and dive into bold creative storytelling. Feel free to reach out; I’d love to connect!"
+          ].map((text, i) => (
+            <p key={i} className="text-lg font-light">{text}</p>
+          ))}
         </div>
       </div>
     </div>
