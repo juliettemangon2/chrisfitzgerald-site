@@ -59,7 +59,7 @@ export default function AboutPage() {
 
         <div className="w-full flex justify-center">
           <img
-            src="/chris.jpeg"
+            src="/public/chris.jpeg"
             alt="Chris Fitzgerald"
             className="w-full sm:w-[320px] h-auto object-cover rounded-md"
           />
