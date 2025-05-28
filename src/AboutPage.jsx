@@ -64,7 +64,7 @@ export default function AboutPage() {
             <img
               src={chrisPhoto}
               alt="Chris Fitzgerald"
-              className="w-full h-[420px] sm:h-[500px] object-cover object-[center_30%]"
+              className="w-full h-[420px] sm:h-[500px] object-cover object-[center_10%]"
             />
           </div>
 
