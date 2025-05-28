@@ -9,9 +9,10 @@ function importAll(r) {
   }));
 }
 
+// Import and filter out chris.jpeg
 const allImages = importAll(
   require.context('./assets/images', true, /\.(jpe?g|png)$/)
-);
+).filter(({ file }) => !file.includes('chris.jpeg'));
 
 const projects = Object.entries(
   allImages.reduce((map, { path, file }) => {
@@ -50,7 +51,7 @@ export default function PhotographyPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-white text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
             <Link to="/" className="leading-tight space-y-0">
               <h2 className="text-3xl font-bold">Chris</h2>
