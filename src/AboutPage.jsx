@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import chrisPhoto from "./assets/images/chris.jpeg"; // Adjust path as needed based on file structure
+import chrisPhoto from "./assets/images/chris.jpeg";
 
 const navItems = [
   { name: "About", path: "/about" },
@@ -55,26 +55,34 @@ export default function AboutPage() {
       </AnimatePresence>
 
       {/* Page content */}
-      <div className="max-w-4xl mx-auto mt-20 sm:mt-28 space-y-10">
-        <h1 className="text-4xl font-light text-center">About Me</h1>
+      <div className="max-w-6xl mx-auto mt-20 sm:mt-28 space-y-12">
+        <h1 className="text-4xl font-light text-center sm:text-left">About Me</h1>
 
-        <div className="w-full flex justify-center">
-          <img
-            src={chrisPhoto}
-            alt="Chris Fitzgerald"
-            className="w-full sm:w-[320px] h-auto object-cover rounded-md"
-          />
-        </div>
+        <div className="flex flex-col sm:flex-row gap-10 items-center">
+          {/* Chris image */}
+          <div className="w-full sm:w-1/2 flex justify-center">
+            <img
+              src={chrisPhoto}
+              alt="Chris Fitzgerald"
+              className="w-full h-[420px] sm:h-[500px] object-cover object-[center_30%]"
+            />
+          </div>
 
-        <div className="space-y-6">
-          {[
-            "Hello! My name is Chris Fitzgerald. I’m a 19-year-old photographer currently based in New York City, where I study Photography & Imaging at NYU Tisch with a double major in Economics.",
-            "Originally from Boston, I’ve explored a wide range of creative work—spanning street and landscape photography, studio portraiture, actors’ headshots, conceptual photo series, and short films across genres.",
-            "Whether I’m behind the camera or in the editing studio, my focus is on using light, color, and composition to tell compelling, emotionally resonant stories.",
-            "I’m currently seeking freelance photography work and internships in the media, art, or entertainment industries—especially roles that let me collaborate, sharpen my technical skills, and dive into bold creative storytelling. Feel free to reach out; I’d love to connect!"
-          ].map((text, i) => (
-            <p key={i} className="text-lg font-light">{text}</p>
-          ))}
+          {/* Text content */}
+          <div className="w-full sm:w-1/2 space-y-6 text-lg font-light">
+            <p>
+              Hello! My name is Chris Fitzgerald. I’m a 19-year-old photographer currently based in New York City, where I study Photography & Imaging at NYU Tisch with a double major in Economics.
+            </p>
+            <p>
+              Originally from Boston, I’ve explored a wide range of creative work—spanning street and landscape photography, studio portraiture, actors’ headshots, conceptual photo series, and short films across genres.
+            </p>
+            <p>
+              Whether I’m behind the camera or in the editing studio, my focus is on using light, color, and composition to tell compelling, emotionally resonant stories.
+            </p>
+            <p>
+              I’m currently seeking freelance photography work and internships in the media, art, or entertainment industries—especially roles that let me collaborate, sharpen my technical skills, and dive into bold creative storytelling. Feel free to reach out; I’d love to connect!
+            </p>
+          </div>
         </div>
       </div>
     </div>
