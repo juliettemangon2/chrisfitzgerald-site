@@ -21,9 +21,7 @@ const projects = Object.entries(
   }, {})
 ).map(([id, images]) => ({
   id,
-  title: id
-    .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase()), // Capitalizes each word
+  title: id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
   cover: images[0],
   images,
 }));
