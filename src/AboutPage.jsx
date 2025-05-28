@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import chrisPhoto from "./assets/images/chris.jpeg"; // Adjust path as needed based on file structure
 
 const navItems = [
   { name: "About", path: "/about" },
@@ -59,7 +60,7 @@ export default function AboutPage() {
 
         <div className="w-full flex justify-center">
           <img
-            src={`${process.env.PUBLIC_URL}/chris.jpeg`}
+            src={chrisPhoto}
             alt="Chris Fitzgerald"
             className="w-full sm:w-[320px] h-auto object-cover rounded-md"
           />
