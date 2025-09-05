@@ -34,9 +34,17 @@ export default function AboutPage() {
             transition={{ duration: 0.4 }}
             className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 text-2xl font-bold"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
             <Link to="/" className="leading-tight space-y-0">
               <h2 className="text-3xl font-bold">Chris</h2>
-              <h2 className="text-3xl font-bold -mt-2">Fitzgerald.</h2>
+              <h2 className="text-3xl font-bold -mt-2">Fitzgerald</h2>
             </Link>
             <div className="flex flex-col gap-6 mt-4">
               {navItems.map(({ name, path }) => (
@@ -55,8 +63,10 @@ export default function AboutPage() {
       </AnimatePresence>
 
       {/* Page content */}
-      <div className="max-w-6xl mx-auto mt-20 sm:mt-28 space-y-12">
-        <h1 className="text-4xl font-light text-center sm:text-left">About Me</h1>
+  <div className="max-w-6xl mx-auto mt-6 sm:mt-10 space-y-12">
+        <h1 className="text-7xl sm:text-8xl font-extrabold tracking-wide text-center sm:text-left uppercase" style={{letterSpacing: '0.08em'}}>
+          ABOUT ME
+        </h1>
 
         <div className="flex flex-col sm:flex-row gap-10 items-center">
           {/* Chris image */}
@@ -71,16 +81,16 @@ export default function AboutPage() {
           {/* Text content */}
           <div className="w-full sm:w-1/2 space-y-6 text-lg font-light">
             <p>
-              Hello! My name is Chris Fitzgerald. I’m a 19-year-old photographer currently based in New York City, where I study Photography & Imaging at NYU Tisch with a double major in Economics.
+              Hello! My name is Chris Fitzgerald. I'm a 19-year-old photographer currently based in New York City, where I study Photography & Imaging at NYU Tisch with a double major in Economics.
             </p>
             <p>
-              Originally from Boston, I’ve explored a wide range of creative work—spanning street and landscape photography, studio portraiture, actors’ headshots, conceptual photo series, and short films across genres.
+              Originally from Boston, I've explored a wide range of creative work—spanning street and landscape photography, studio portraiture, actors’ headshots, conceptual photo series, and short films across genres.
             </p>
             <p>
-              Whether I’m behind the camera or in the editing studio, my focus is on using light, color, and composition to tell compelling, emotionally resonant stories.
+              Whether I'm behind the camera or in the editing studio, my focus is on using light, color, and composition to tell compelling, emotionally resonant stories.
             </p>
             <p>
-              I’m currently seeking freelance photography work and internships in the media, art, or entertainment industries—especially roles that let me collaborate, sharpen my technical skills, and dive into bold creative storytelling. Feel free to reach out; I’d love to connect!
+              I'm currently seeking freelance photography work and internships in the media, art, or entertainment industries—especially roles that let me collaborate, sharpen my technical skills, and dive into bold creative storytelling. Feel free to reach out; I’d love to connect!
             </p>
           </div>
         </div>

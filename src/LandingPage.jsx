@@ -43,9 +43,17 @@ export default function LandingPage() {
             transition={{ duration: 0.4 }}
             className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 text-2xl font-bold"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
             <Link to="/" className="leading-tight space-y-0">
               <h2 className="text-3xl font-bold">Chris</h2>
-              <h2 className="text-3xl font-bold -mt-2">Fitzgerald.</h2>
+              <h2 className="text-3xl font-bold -mt-2">Fitzgerald</h2>
             </Link>
             <div className="flex flex-col gap-6 mt-4">
               {navItems.map(({ name, path }) => (

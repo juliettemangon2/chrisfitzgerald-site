@@ -53,9 +53,17 @@ export default function PhotographyPage() {
             transition={{ duration: 0.4 }}
             className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 text-2xl font-bold"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
             <Link to="/" className="leading-tight space-y-0">
               <h2 className="text-3xl font-bold">Chris</h2>
-              <h2 className="text-3xl font-bold -mt-2">Fitzgerald.</h2>
+              <h2 className="text-3xl font-bold -mt-2">Fitzgerald</h2>
             </Link>
             <div className="flex flex-col gap-6 mt-4">
               <Link to="/about" className="text-2xl font-medium">About</Link>
@@ -67,8 +75,10 @@ export default function PhotographyPage() {
       </AnimatePresence>
 
       {/* Gallery Content */}
-      <div className="max-w-5xl mx-auto mt-20 sm:mt-28 space-y-10">
-        <h1 className="text-4xl font-light text-center mb-12">Photography</h1>
+  <div className="max-w-5xl mx-auto mt-6 sm:mt-10 space-y-10">
+        <h1 className="text-7xl sm:text-8xl font-extrabold tracking-wide text-center mb-12 uppercase" style={{letterSpacing: '0.08em'}}>
+          PHOTOGRAPHY
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {projects.map((proj) => (
             <div
