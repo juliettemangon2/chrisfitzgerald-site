@@ -22,7 +22,7 @@ export default function LandingPage() {
   const words = ["Photographer.", "Storyteller.", "Creative Thinker."];
 
   return (
-    <div className="relative min-h-screen bg-[#f4e6ff] text-[#026ead] font-sans overflow-hidden">
+    <div className="relative min-h-screen bg-[#E7EBFD] text-[#026ead] font-sans overflow-hidden">
       {/* Menu Toggle */}
       <div className="absolute top-6 right-6 z-20">
         <button
@@ -41,7 +41,7 @@ export default function LandingPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#D5DAFA] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
             {/* Close button */}
             <button

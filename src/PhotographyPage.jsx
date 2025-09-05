@@ -32,7 +32,7 @@ export default function PhotographyPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen bg-[#f4e6ff] text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
+    <div className="relative min-h-screen bg-[#E7EBFD] text-[#026ead] font-sans overflow-hidden px-6 sm:px-20 py-12">
       {/* Menu Button */}
       <div className="absolute top-6 right-6 z-20">
         <button
@@ -51,7 +51,7 @@ export default function PhotographyPage() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#ffab4a] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
+            className="fixed top-0 right-0 w-full sm:w-72 h-full bg-[#D5DAFA] text-[#026ead] z-30 p-8 flex flex-col items-start gap-10"
           >
             {/* Close button */}
             <button
@@ -75,8 +75,8 @@ export default function PhotographyPage() {
       </AnimatePresence>
 
       {/* Gallery Content */}
-  <div className="max-w-5xl mx-auto mt-6 sm:mt-10 space-y-10">
-        <h1 className="text-7xl sm:text-8xl font-extrabold tracking-wide text-center mb-12 uppercase" style={{letterSpacing: '0.08em'}}>
+      <div className="max-w-5xl mx-auto mt-6 sm:mt-10 space-y-10">
+        <h1 className="text-7xl sm:text-8xl font-extrabold tracking-wide text-center mb-12 uppercase" style={{ letterSpacing: '0.01em' }}>
           PHOTOGRAPHY
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
