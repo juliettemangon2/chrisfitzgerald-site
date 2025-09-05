@@ -2,47 +2,40 @@
   "name": "chrisfitzgerald-site",
   "version": "0.1.0",
   "private": true,
-
   "homepage": "https://juliettemangon2.github.io/chrisfitzgerald-site",
-
   "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^12.9.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0"
+    "web-vitals": "^2.1.4"
   },
-
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.4"
   },
-
   "scripts": {
     "build-css": "tailwindcss -i ./src/index.css -o ./src/tailwind.css --minify",
-
     "build": "npm run build-css && react-scripts build",
-
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-
   "browserslist": {
     "production": [
       ">0.2%",
